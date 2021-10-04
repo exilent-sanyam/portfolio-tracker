@@ -14,7 +14,10 @@ class ErrorHandler extends Error {
 }
 
 const handleError = (err, req, res) => {
-  const { statusCode = errorMessages.SERVER_ERROR.status, errorMessage = errorMessages.SERVER_ERROR.message } = err
+  const {
+    statusCode = err.statusCode || errorMessages.SERVER_ERROR.status,
+    errorMessage = err.message || errorMessages.SERVER_ERROR.message,
+  } = err
 
   res.status(statusCode).send({
     statusCode,

@@ -2,12 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const objectID = Schema.ObjectId
 
-const tradeSchema = new Schema({
+const tradesSchema = new Schema({
   _id: { type: String, required: true },
-  averageBuyPrice: {
-    type: Number,
-    default: 0,
-  },
 
   noOfShares: {
     type: Number,
@@ -17,6 +13,7 @@ const tradeSchema = new Schema({
   trades: [
     {
       _id: { type: objectID, required: true },
+
       type: {
         type: String,
         enum: ['BUY', 'SELL'],
@@ -39,5 +36,5 @@ const tradeSchema = new Schema({
   ],
 })
 
-const trades = mongoose.model('trades', tradeSchema, 'trades')
+const trades = mongoose.model('trades', tradesSchema, 'trades')
 module.exports = trades

@@ -18,7 +18,7 @@ const addTrade = async reqBody => {
   const securities = await fetchSecuritiesByTicker(ticker)
   return await addTradeByTicker(
     { ticker, type, quantity, price },
-    getShareCount(securities?.noOfShares || 0, type, quantity),
+    getShareCount(securities?.noOfShares ?? 0, type, quantity),
   )
 }
 
@@ -64,7 +64,7 @@ const getUpdatedCountForShare = (security, noOfShares, type, quantity) => {
   }
 
   if (noOfShares < 0) {
-    throw new ErrorHandler(400, 'Operation will make total number of shares less than 0. Cannot be permitted')
+    throw new ErrorHandler(400, 'This update will make total number of shares less than zero!')
   }
 
   return noOfShares
@@ -90,7 +90,7 @@ const getSecurityDetailForDeleteTrade = (security, noOfShares) => {
   }
 
   if (noOfShares < 0) {
-    throw new ErrorHandler(400, 'Operation will make total number of shares less than  0. Cannot be permitted')
+    throw new ErrorHandler(400, 'This Delete will make total number of shares less than zero')
   }
 
   return noOfShares

@@ -6,18 +6,18 @@ services:
       - "27017:27017"
     volumes:
       - data:/data/db
-#  backend:
-#    container_name: portfolio-tracking
-#    image: portfolio-tracking:latest
-#    ports:
-#      - 8080:8080
-#    depends_on:
-#      - db
-#    volumes:
-#      - .:/usr/src/app
-#    links:
-#      - db
-#    env_file:
-#      - .env
+  backend:
+    container_name: portfolio-tracking
+    image: portfolio-tracking:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    links:
+      - db
+    env_file:
+      - .env
 volumes:
   data:

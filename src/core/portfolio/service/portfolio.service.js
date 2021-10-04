@@ -46,6 +46,7 @@ const calculateAverageBuyPrice = trades => {
 }
 
 const calculateReturns = (trades, noOfShares) => {
+  // As mentioned in Document that currentPrice = 100
   const currentPrice = 100
   return (currentPrice - calculateAverageBuyPrice(trades)) * noOfShares
 }
