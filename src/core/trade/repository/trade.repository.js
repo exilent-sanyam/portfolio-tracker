@@ -8,6 +8,9 @@ const fetchSecuritiesByTicker = async ticker => {
     {
       _id: ticker,
     },
+    /**
+     * The object below is projection,for selecting just `noOfShares`
+     */
     { noOfShares: 1 },
   )
   return security

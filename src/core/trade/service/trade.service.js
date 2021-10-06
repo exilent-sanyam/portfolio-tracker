@@ -95,7 +95,13 @@ const getSecurityDetailForDeleteTrade = (security, noOfShares) => {
 
   return noOfShares
 }
-
+/**
+ * This will return a map something like described below:
+ *  "ticker":{
+ *    trades: expect.any(Array),
+ *    noOfShares: expect.any(Number)
+ *  },
+ */
 const fetchTrades = async () => {
   const response = await fetchAllTrades()
   if (response) {

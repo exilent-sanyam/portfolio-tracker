@@ -1,5 +1,12 @@
 const { fetchTrades } = require('../../trade/service/trade.service')
 
+/**
+ * This will return a map something like described below:
+ *  "ticker":{
+ *    shares: expect.any(Number),
+ *    averageBuyPrice: expect.any(Number)
+ *  },
+ */
 const fetchPortfolio = async () => {
   const allSecurities = await fetchTrades()
   if (!allSecurities) {
